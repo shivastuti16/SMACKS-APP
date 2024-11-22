@@ -1,3 +1,4 @@
+import Image from 'next/image';
 type MenuItemProps = {
     name: string;
     price: string;
@@ -8,7 +9,7 @@ type MenuItemProps = {
   
   const MenuItem = ({ name, price, description, allergyInfo, image }: MenuItemProps) => (
     <div className="menu-item">
-      <img src={image} alt={name} />
+      <Image src={image} alt={name} width={300} height={200} />
       <h3>{name}</h3>
       <p>{description}</p>
       <p>Price: {price}</p>

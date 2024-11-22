@@ -1,7 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { v4 as uuidv4 } from 'uuid';
 
-let orders: any[] = []; // Temporary in-memory storage
+
+type Order = {
+  id: string;
+  items: { name: string; quantity: number }[];
+  paymentMethod: 'Cash' | 'Card';
+  status: 'Pending' | 'Completed' | 'Cancelled';
+};
+
+const orders: Order[] = []; // Use the defined type instead of any
+
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
